@@ -1,11 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
 
 func main() {
+	//init application
 	displayBanner("%", 100, 3, "Wordpress CLI")
-	fmt.Println("My favorite number is", rand.Intn(10))
+	config := initConfig()
+
+	fmt.Println(config)
 }
