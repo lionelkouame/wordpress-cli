@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strconv"
 )
 
 type Projects struct {
@@ -19,7 +20,6 @@ func readProjectsXml() Projects {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("Open  ok")
 
 	defer xmlFile.Close()
 
@@ -35,10 +35,9 @@ func displayProjectList() {
 
 	fmt.Println("Choissisez votre projet wordpress")
 	for i := 0; i < len(projects.Projects); i++ {
-		fmt.Printf("=== Project === ")
-		fmt.Println("    Project Name :   " + projects.Projects[i].Name)
-		fmt.Println("    path: ")
-		fmt.Print(projects.Projects[i].Path)
+		fmt.Println("Choice => [" + strconv.FormatInt(int64(i), 10) + "]")
+		fmt.Println("Project Name :" + projects.Projects[i].Name)
+		fmt.Println("    path: " + projects.Projects[i].Path)
 	}
 }
 
