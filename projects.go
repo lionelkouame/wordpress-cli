@@ -41,6 +41,18 @@ func displayProjectList() {
 	}
 }
 
+func getProject(cursor string) (name, path string) {
+	projects := readProjectsXml()
+	for i := 0; i < len(projects.Projects); i++ {
+		iStr := strconv.FormatInt(int64(i), 10)
+		if cursor == iStr {
+			name = projects.Projects[i].Name
+			path = projects.Projects[i].Path
+		}
+	}
+	return name, path
+}
+
 type Project struct {
 	XMLName xml.Name `xml:"project"`
 	Name    string   `xml:"name"`
