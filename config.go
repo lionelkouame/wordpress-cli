@@ -30,6 +30,7 @@ func createDefaultConfigFile() bool {
 	return true
 }
 
+//TODO  change this methods for  'displayFileProject'
 func initConfig() bool {
 	files, err := ioutil.ReadDir("./")
 	isFileExist := false
@@ -40,7 +41,7 @@ func initConfig() bool {
 	for _, f := range files {
 		fmt.Println(f.Name())
 		if FILE_CONFIG == f.Name() {
-			//TODO  implement useExistingConfig()
+			println("check ")
 		}
 	}
 	if !isFileExist {
